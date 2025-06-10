@@ -15,7 +15,7 @@ function renderTable(data) {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td> <img src="${getPokemonSprite(pokemon.name)}" alt="${pokemon.name}" style="width:48px;height:48px;"><br> ${pokemon.name} </td>
-      <td>${entry.pokemonName}</td>
+      /*<td>${entry.pokemonName}</td>*/
       <td>${entry.nickname}</td>
       <td>${entry.gameOrigin}</td>
       <td>${entry.level}</td>
