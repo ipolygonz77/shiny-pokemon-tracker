@@ -1,0 +1,23 @@
+<!-- Pokémon Entry Form -->
+<form id="pokemonForm">
+  <input type="text" id="nickname" placeholder="Nickname" required />
+  <input type="text" id="name" placeholder="Pokemon Name (e.g. Pikachu)" required />
+  <select id="gender">
+    <option value="♂">♂</option>
+    <option value="♀">♀</option>
+    <option value="None">None</option>
+  </select>
+  <button type="submit">Add</button>
+</form>
+
+<!-- Pokémon Table -->
+<table>
+  <thead>
+    <tr>
+      <th>Nickname</th>
+      <th>Pokemon</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody id="pokemonTableBody"></tbody>
+</table>
