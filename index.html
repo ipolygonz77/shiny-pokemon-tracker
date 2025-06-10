@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shiny Pokémon Tracker</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
+    h1 { text-align: center; }
+    .form, .table { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+    label { font-weight: bold; margin-top: 10px; display: block; }
+    input, select, textarea, button { width: 100%; padding: 8px; margin-top: 5px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #eee; }
+    img.sprite { width: 32px; height: 32px; vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <h1>Shiny Pokémon Tracker</h1>
+
+  <div class="form">
+    <h2>Add a New Shiny</h2>
+    <form id="shinyForm">
+      <label>Generation</label>
+      <select id="generation" required>
+        <option value="">Select Gen</option>
+        <option value="1">Gen 1</option><option value="2">Gen 2</option><option value="3">Gen 3</option>
+        <option value="4">Gen 4</option><option value="5">Gen 5</option><option value="6">Gen 6</option>
+        <option value="7">Gen 7</option><option value="8">Gen 8</option><option value="9">Gen 9</option>
+      </select>
+      <!-- Repeat other form fields (Ball, Nickname, etc.) with sprite image previews... -->
+      <button type="submit">Add Shiny</button>
+    </form>
+  </div>
+
+  <div class="table">
+    <h2>Your Shinies</h2>
+    <button onclick="exportData()">Export JSON</button>
+    <input type="file" id="importFile" onchange="importData(event)">
+    <label>Filter by Generation:</label>
+    <select id="filterGen" onchange="updateTable()">
+      <option value="">All</option>
+      <option value="1">Gen 1</option><option value="2">Gen 2</option><option value="3">Gen 3</option>
+      <option value="4">Gen 4</option><option value="5">Gen 5</option><option value="6">Gen 6</option>
+      <option value="7">Gen 7</option><option value="8">Gen 8</option><option value="9">Gen 9</option>
+    </select>
+    <table id="shinyTable"><thead><!-- columns here --></thead><tbody></tbody></table>
+  </div>
+
+  <script>
+    // Same logic as offline version, but with sprite URLs & filtering
+    // On form submit: capture generation, fetch sprites, save to localStorage, then updateTable()
+    // updateTable: filter by gen if set
+  </script>
+</body>
+</html>
