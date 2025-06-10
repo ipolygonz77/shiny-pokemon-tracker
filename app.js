@@ -1,3 +1,8 @@
+function getPokemonSprite(name) {
+  if (!name) return "";
+  return `https://img.pokemondb.net/sprites/black-white/shiny/${name.toLowerCase().replace(" ", "-")}.png`;
+}
+
 const form = document.getElementById("shinyForm");
 const tableBody = document.querySelector("#shinyTable tbody");
 const generationFilter = document.getElementById("generationFilter");
