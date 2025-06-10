@@ -12,8 +12,27 @@
   <form id="shinyForm">
     <input type="text" id="pokemonName" placeholder="Pokémon Name (e.g. Alolan Ninetales)" required>
     <input type="text" id="nickname" placeholder="Nickname">
-    <input type="text" id="generation" placeholder="Generation (e.g. 7)">
-    <input type="text" id="gender" placeholder="Gender">
+    
+    <label for="generation">Generation:</label>
+    <select id="generation" name="generation" required>
+    <option value="Generation 1">Generation 1</option>
+    <option value="Generation 2">Generation 2</option>
+    <option value="Generation 3">Generation 3</option>
+    <option value="Generation 4">Generation 4</option>
+    <option value="Generation 5">Generation 5</option>
+    <option value="Generation 6">Generation 6</option>
+    <option value="Generation 7">Generation 7</option>
+    <option value="Generation 8">Generation 8</option>
+    <option value="Generation 9">Generation 9</option>
+    </select>
+    
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+    <option value="♂️">♂️</option>
+    <option value="♀️">♀️</option>
+    <option value="○">○</option>
+    </select>
+    
     <input type="text" id="ballType" placeholder="Poké Ball Type">
     <input type="text" id="gameOrigin" placeholder="Game Origin">
     <input type="text" id="size" placeholder="Size">
