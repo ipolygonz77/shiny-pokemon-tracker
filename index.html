@@ -1,23 +1,64 @@
-<!-- Pokémon Entry Form -->
-<form id="pokemonForm">
-  <input type="text" id="nickname" placeholder="Nickname" required />
-  <input type="text" id="name" placeholder="Pokemon Name (e.g. Pikachu)" required />
-  <select id="gender">
-    <option value="♂">♂</option>
-    <option value="♀">♀</option>
-    <option value="None">None</option>
-  </select>
-  <button type="submit">Add</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shiny Pokémon Tracker</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 30px;
+      background-color: #f5f5f5;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    input, select {
+      margin-right: 10px;
+      padding: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    img {
+      max-width: 48px;
+      max-height: 48px;
+    }
+  </style>
+</head>
+<body>
 
-<!-- Pokémon Table -->
-<table>
-  <thead>
-    <tr>
-      <th>Nickname</th>
-      <th>Pokemon</th>
-      <th>Gender</th>
-    </tr>
-  </thead>
-  <tbody id="pokemonTableBody"></tbody>
-</table>
+  <h1>Shiny Pokémon Tracker</h1>
+
+  <form id="pokemonForm">
+    <input type="text" id="nickname" placeholder="Nickname" required />
+    <input type="text" id="name" placeholder="Pokémon Name (e.g. Pikachu)" required />
+    <select id="gender">
+      <option value="♂">♂</option>
+      <option value="♀">♀</option>
+      <option value="None">None</option>
+    </select>
+    <button type="submit">Add Pokémon</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nickname</th>
+        <th>Pokémon</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody id="pokemonTableBody"></tbody>
+  </table>
+
+  <script src="app.js"></script>
+</body>
+</html>
