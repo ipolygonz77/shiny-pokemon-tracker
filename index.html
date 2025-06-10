@@ -4,60 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shiny Pokémon Tracker</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 30px;
-      background-color: #f5f5f5;
-    }
-    form {
-      margin-bottom: 20px;
-    }
-    input, select {
-      margin-right: 10px;
-      padding: 5px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-    }
-    th, td {
-      padding: 10px;
-      border: 1px solid #ccc;
-      text-align: center;
-    }
-    img {
-      max-width: 48px;
-      max-height: 48px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <h1>Shiny Pokémon Tracker</h1>
 
-  <form id="pokemonForm">
-    <input type="text" id="nickname" placeholder="Nickname" required />
-    <input type="text" id="name" placeholder="Pokémon Name (e.g. Pikachu)" required />
-    <select id="gender">
-      <option value="♂">♂</option>
-      <option value="♀">♀</option>
-      <option value="None">None</option>
-    </select>
+  <form id="shinyForm">
+    <input type="text" id="pokemonName" placeholder="Pokémon Name (e.g. Alolan Ninetales)" required>
+    <input type="text" id="nickname" placeholder="Nickname">
+    <input type="text" id="generation" placeholder="Generation (e.g. 7)">
+    <input type="text" id="gender" placeholder="Gender">
+    <input type="text" id="ballType" placeholder="Poké Ball Type">
+    <input type="text" id="gameOrigin" placeholder="Game Origin">
+    <input type="text" id="size" placeholder="Size">
+    <input type="number" id="level" placeholder="Level">
+    <input type="text" id="ot" placeholder="OT">
+    <input type="text" id="id" placeholder="ID">
+    <input type="text" id="ability" placeholder="Ability">
+    <input type="text" id="teraType" placeholder="Tera Type">
+    <input type="text" id="originalNature" placeholder="Original Nature">
+    <input type="text" id="mintedNature" placeholder="Minted Nature">
+    <input type="text" id="ivs" placeholder="IVs (e.g. 31/31/31/31/31/31)">
+    <input type="text" id="marks" placeholder="Marks">
+    <input type="text" id="ribbons" placeholder="Ribbon Master">
+    <input type="text" id="location" placeholder="Location">
+    <input type="text" id="notes" placeholder="Misc Notes">
+    <input type="text" id="obtainment" placeholder="Obtainment Method">
     <button type="submit">Add Pokémon</button>
   </form>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Nickname</th>
-        <th>Pokémon</th>
-        <th>Gender</th>
-      </tr>
-    </thead>
-    <tbody id="pokemonTableBody"></tbody>
-  </table>
+  <div>
+    <label for="generationFilter">Filter by Generation:</label>
+    <select id="generationFilter">
+      <option value="">All</option>
+      <option value="1">Gen 1</option>
+      <option value="2">Gen 2</option>
+      <option value="3">Gen 3</option>
+      <option value="4">Gen 4</option>
+      <option value="5">Gen 5</option>
+      <option value="6">Gen 6</option>
+      <option value="7">Gen 7</option>
+      <option value="8">Gen 8</option>
+      <option value="9">Gen 9</option>
+    </select>
+  </div>
+
+  <div id="pokemonList"></div>
 
   <script src="app.js"></script>
 </body>
