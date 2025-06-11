@@ -29,24 +29,32 @@ window.addEventListener('DOMContentLoaded', function () {
     })
     .catch(error => console.error("Error loading Pokémon list:", error));
 
-  // Fetch Abilities from PokéAPI
-  fetch('https://pokeapi.co/api/v2/ability?limit=1000')
-    .then(res => res.json())
-    .then(data => {
-      const abilityOptions = data.results.map(a => {
-        const name = a.name.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
-        return { value: name, text: name };
-      });
+// Fetch Abilities from PokéAPI (filtered and sorted)
+fetch('https://pokeapi.co/api/v2/ability?limit=1000')
+  .then(res => res.json())
+  .then(data => {
+    // Fetch detailed info for each ability
+    const abilityFetches = data.results.map(ability =>
+      fetch(ability.url).then(res => res.json())
+    );
+
+    Promise.all(abilityFetches).then(abilityDataArray => {
+      const validAbilities = abilityDataArray
+        .filter(ability => ability.pokemon && ability.pokemon.length > 0)
+        .map(ability => {
+          const name = ability.name.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+          return { value: name, text: name };
+        })
+        .sort((a, b) => a.text.localeCompare(b.text)); // Sort alphabetically
 
       new TomSelect("#ability", {
-        options: abilityOptions,
+        options: validAbilities,
         create: false,
         placeholder: "Select an Ability..."
       });
-    })
-    .catch(error => console.error("Error loading abilities:", error));
-
-
+    });
+  })
+  .catch(error => console.error("Error loading abilities:", error));
   
   // Size dropdown
   new TomSelect("#size", {
