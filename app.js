@@ -34,6 +34,51 @@ document.getElementById('shinyForm').addEventListener('submit', function (e) {
 
 document.getElementById('generationFilter').addEventListener('change', renderPokemonList);
 
+function getBallSprite(ballType) {
+  const ballMap = {
+    "Poké Ball": "pokeball",
+    "Great Ball": "greatball",
+    "Ultra Ball": "ultraball",
+    "Master Ball": "masterball",
+    "Premier Ball": "premierball",
+    "Heal Ball": "healball",
+    "Net Ball": "netball",
+    "Nest Ball": "nestball",
+    "Dive Ball": "diveball",
+    "Dusk Ball": "duskball",
+    "Luxury Ball": "luxuryball",
+    "Repeat Ball": "repeatball",
+    "Timer Ball": "timerball",
+    "Quick Ball": "quickball",
+    "Cherish Ball": "cherishball",
+    "Friend Ball": "friendball",
+    "Level Ball": "levelball",
+    "Love Ball": "loveball",
+    "Lure Ball": "lureball",
+    "Heavy Ball": "heavyball",
+    "Fast Ball": "fastball",
+    "Moon Ball": "moonball",
+    "Dream Ball": "dreamball",
+    "Beast Ball": "beastball",
+
+    // Hisuian variants — fallback to main variant
+    "Poké Ball (Hisuian)": "pokeball",
+    "Great Ball (Hisuian)": "greatball",
+    "Ultra Ball (Hisuian)": "ultraball",
+    "Feather Ball": "featherball",
+    "Wing Ball": "wingball",
+    "Jet Ball": "jetball",
+    "Heavy Ball (Hisuian)": "heavyball",
+    "Leaden Ball": "leadenball",
+    "Gigaton Ball": "gigatonball"
+  };
+
+  const key = ballMap[ballType];
+  if (!key) return "";
+
+  return `https://play.pokemonshowdown.com/sprites/itemicons/${key}.png`;
+}
+
 function renderPokemonList() {
   const container = document.getElementById('pokemonList');
   const filterGen = document.getElementById('generationFilter').value;
