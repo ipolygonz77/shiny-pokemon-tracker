@@ -75,6 +75,45 @@ function getBallSprite(ballType) {
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${key}.png`;
 }
 
+function getMarkSprite(markName) {
+  const markMap = {
+    "Itemfinder Mark": "itemfinder",
+    "Gourmet Mark": "gourmet",
+    "Partner Mark": "partner",
+    "Lunchtime Mark": "lunchtime",
+    "Sleepy-Time Mark": "sleepy-time",
+    "Rowdy Mark": "rowdy",
+    "Absent-Minded Mark": "absent-minded",
+    "Jittery Mark": "jittery",
+    "Excited Mark": "excited",
+    "Intense Mark": "intense",
+    "Zoned-Out Mark": "zoned-out",
+    "Joyful Mark": "joyful",
+    "Angry Mark": "angry",
+    "Teary Mark": "teary",
+    "Pumped-Up Mark": "pumped-up",
+    "Peeved Mark": "peeved",
+    "Intellectual Mark": "intellectual",
+    "Ferocious Mark": "ferocious",
+    "Crafty Mark": "crafty",
+    "Scowling Mark": "scowling",
+    "Kindly Mark": "kindly",
+    "Flustered Mark": "flustered",
+    "Prideful Mark": "prideful",
+    "Unsure Mark": "unsure",
+    "Humble Mark": "humble",
+    "Thorny Mark": "thorny",
+    "Vigor Mark": "vigor",
+    "Slump Mark": "slump",
+    "Smiley Mark": "smiley"
+  };
+
+  const fileName = markMap[markName];
+  if (!fileName) return "";
+
+  return `https://raw.githubusercontent.com/msikma/pokesprite/master/items/mark/${fileName}.png`;
+}
+
 function renderPokemonList() {
   const container = document.getElementById('pokemonList');
   const filterGen = document.getElementById('generationFilter').value;
@@ -105,7 +144,13 @@ function renderPokemonList() {
       <p><strong>Tera Type:</strong> ${pokemon.teraType}</p>
       <p><strong>Nature:</strong> ${pokemon.originalNature} (Minted: ${pokemon.mintedNature})</p>
       <p><strong>IVs:</strong> ${pokemon.ivs}</p>
-      <p><strong>Marks:</strong> ${pokemon.marks}</p>
+     
+      <p>
+  <strong>Marks:</strong>
+  <img src="${getMarkSprite(pokemon.marks)}" alt="${pokemon.marks}" class="mark-sprite"/>
+  ${pokemon.marks}
+</p>
+      
       <p><strong>Ribbons:</strong> ${pokemon.ribbons}</p>
       <p><strong>Location:</strong> ${pokemon.location}</p>
       <p><strong>Notes:</strong> ${pokemon.notes}</p>
