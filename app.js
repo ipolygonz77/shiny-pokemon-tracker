@@ -72,9 +72,20 @@ document.getElementById('shinyForm').addEventListener('submit', function (e) {
     rule3: `${document.getElementById('ot').value} / ${document.getElementById('id').value} / ${document.getElementById('obtainment').value || 'Not Tradeable'}`
   };
 
-  pokemonList.push(pokemon);
-  renderPokemonList();
-  e.target.reset();
+pokemonList.push(pokemon);
+renderPokemonList();
+e.target.reset();
+
+// Manually reset Tom Select fields
+const tomSelectFields = ['pokemonName', 'size'];
+tomSelectFields.forEach(id => {
+  const select = document.getElementById(id);
+  if (select && select.tomselect) {
+    select.tomselect.clear(); // Clears the selected value
+  }
+});
+
+  
 });
 
 document.getElementById('generationFilter').addEventListener('change', renderPokemonList);
