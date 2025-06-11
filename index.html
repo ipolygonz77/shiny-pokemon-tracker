@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- Tom Select CSS -->
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+
+<!-- Tom Select JS -->
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shiny Pokémon Tracker</title>
@@ -73,7 +80,11 @@
 </select>
     
     <input type="text" id="gameOrigin" placeholder="Game Origin">
-    <input type="text" id="size" placeholder="Size">
+
+    <label for="size">Size</label>
+<select id="size" name="size" required></select>
+    
+
     <input type="number" id="level" placeholder="Level">
     <input type="text" id="ot" placeholder="OT">
     <input type="text" id="id" placeholder="ID">
