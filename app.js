@@ -2,7 +2,6 @@ const pokemonList = [];
 
 window.addEventListener('DOMContentLoaded', function () {
   // Fetch Pokémon from PokéAPI
-  .catch(error => console.error("Error loading Pokémon list:", error));
   
   fetch('https://pokeapi.co/api/v2/pokemon?limit=2000')
     .then(res => res.json())
