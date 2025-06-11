@@ -3,32 +3,36 @@ const pokemonList = [];
 window.addEventListener('DOMContentLoaded', function () {
   // Fetch Pokémon from PokéAPI
   
-  fetch('https://pokeapi.co/api/v2/pokemon?limit=2000')
-    .then(res => res.json())
-    .then(data => {
-      const options = data.results.map(p => {
-        let name = p.name.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+fetch('https://pokeapi.co/api/v2/pokemon?limit=2000')
+  .then(res => res.json())
+  .then(data => {
+    const options = data.results.map(p => {
+      let name = p.name.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
 
-        // Optional form renaming
-        name = name
-          .replace("Alola ", "Alolan ")
-          .replace("Galar ", "Galarian ")
-          .replace("Hisui ", "Hisuian ")
-          .replace("Paldea ", "Paldean ")
-          .replace("Gmax", "Gigantamax ")
-          .replace("Totem ", "Totem ");
+      // Optional form renaming
+      name = name
+        .replace("Alola ", "Alolan ")
+        .replace("Galar ", "Galarian ")
+        .replace("Hisui ", "Hisuian ")
+        .replace("Paldea ", "Paldean ")
+        .replace("Gmax", "Gigantamax ")
+        .replace("Totem ", "Totem ");
 
-        return { value: name, text: name };
-      });
+      return { value: name, text: name };
+    });
 
-      new TomSelect("#pokemonName", {
-        options,
-        create: false,
-        placeholder: "Select a Pokémon..."
-      });
-    })
-    .catch(error => console.error("Error loading Pokémon list:", error));
+    // Sort alphabetically by `text`
+    options.sort((a, b) => a.text.localeCompare(b.text));
 
+    new TomSelect("#pokemonName", {
+      options,
+      create: false,
+      placeholder: "Select a Pokémon..."
+    });
+  })
+  .catch(error => console.error("Error loading Pokémon list:", error));
+
+  
 // Fetch Abilities from PokéAPI (filtered and sorted)
 fetch('https://pokeapi.co/api/v2/ability?limit=1000')
   .then(res => res.json())
