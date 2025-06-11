@@ -31,8 +31,6 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-});
-
   
   new TomSelect("#size", {
     options: [
