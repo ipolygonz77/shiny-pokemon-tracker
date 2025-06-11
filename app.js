@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', function () {
       placeholder: "Select a Pokémon..."
     });
   });
-  
+});
   
   new TomSelect("#size", {
     options: [
