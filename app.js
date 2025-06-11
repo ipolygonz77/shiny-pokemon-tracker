@@ -36,47 +36,47 @@ document.getElementById('generationFilter').addEventListener('change', renderPok
 
 function getBallSprite(ballType) {
   const ballMap = {
-    "Poké Ball": "pokeball",
-    "Great Ball": "greatball",
-    "Ultra Ball": "ultraball",
-    "Master Ball": "masterball",
-    "Premier Ball": "premierball",
-    "Heal Ball": "healball",
-    "Net Ball": "netball",
-    "Nest Ball": "nestball",
-    "Dive Ball": "diveball",
-    "Dusk Ball": "duskball",
-    "Luxury Ball": "luxuryball",
-    "Repeat Ball": "repeatball",
-    "Timer Ball": "timerball",
-    "Quick Ball": "quickball",
-    "Cherish Ball": "cherishball",
-    "Friend Ball": "friendball",
-    "Level Ball": "levelball",
-    "Love Ball": "loveball",
-    "Lure Ball": "lureball",
-    "Heavy Ball": "heavyball",
-    "Fast Ball": "fastball",
-    "Moon Ball": "moonball",
-    "Dream Ball": "dreamball",
-    "Beast Ball": "beastball",
+    "Poké Ball": "poke",
+    "Great Ball": "great",
+    "Ultra Ball": "ultra",
+    "Master Ball": "master",
+    "Premier Ball": "premier",
+    "Heal Ball": "heal",
+    "Net Ball": "net",
+    "Nest Ball": "nest",
+    "Dive Ball": "dive",
+    "Dusk Ball": "dusk",
+    "Luxury Ball": "luxury",
+    "Repeat Ball": "repeat",
+    "Timer Ball": "timer",
+    "Quick Ball": "quick",
+    "Cherish Ball": "cherish",
+    "Friend Ball": "friend",
+    "Level Ball": "level",
+    "Love Ball": "love",
+    "Lure Ball": "lure",
+    "Heavy Ball": "heavy",
+    "Fast Ball": "fast",
+    "Moon Ball": "moon",
+    "Dream Ball": "dream",
+    "Beast Ball": "beast",
 
-    // Hisuian variants — fallback to main variant
-    "Poké Ball (Hisuian)": "pokeball",
-    "Great Ball (Hisuian)": "greatball",
-    "Ultra Ball (Hisuian)": "ultraball",
-    "Feather Ball": "featherball",
-    "Wing Ball": "wingball",
-    "Jet Ball": "jetball",
-    "Heavy Ball (Hisuian)": "heavyball",
-    "Leaden Ball": "leadenball",
-    "Gigaton Ball": "gigatonball"
+    // Legends Arceus & variants (mapped to closest base sprite)
+    "Poké Ball (Hisuian)": "poke",
+    "Great Ball (Hisuian)": "great",
+    "Ultra Ball (Hisuian)": "ultra",
+    "Feather Ball": "feather",
+    "Wing Ball": "wing",
+    "Jet Ball": "jet",
+    "Heavy Ball (Hisuian)": "heavy",
+    "Leaden Ball": "leaden",
+    "Gigaton Ball": "gigaton"
   };
 
   const key = ballMap[ballType];
   if (!key) return "";
 
-  return `https://play.pokemonshowdown.com/sprites/itemicons/${key}.png`;
+  return `https://raw.githubusercontent.com/msikma/pokesprite/master/items/balls/${key}-ball.png`;
 }
 
 function renderPokemonList() {
