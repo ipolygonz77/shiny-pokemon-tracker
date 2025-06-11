@@ -8,24 +8,21 @@ window.addEventListener('DOMContentLoaded', function () {
     const options = [];
 
     for (const key in data) {
-      const poke = data[key];
-      // Format: capitalize + handle forms
-      let name = poke.slug;
-      if (name.includes("/")) continue; // skip duplicate slugs
-      name = name.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+  if (key.includes("/")) continue; // skip aliases like "bulbasaur/1"
 
-      // Fix known special cases for display
-      name = name
-        .replace("Alola ", "Alolan ")
-        .replace("Galar ", "Galarian ")
-        .replace("Hisui ", "Hisuian ")
-        .replace("Paldea ", "Paldean ")
-        .replace("Mega ", "Mega ")
-        .replace("Gmax", "Gigantamax")
-        .replace("Totem ", "Totem ");
+  let name = key.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
 
-      options.push({ value: name, text: name });
-    }
+  name = name
+    .replace("Alola ", "Alolan ")
+    .replace("Galar ", "Galarian ")
+    .replace("Hisui ", "Hisuian ")
+    .replace("Paldea ", "Paldean ")
+    .replace("Mega ", "Mega ")
+    .replace("Gmax", "Gigantamax ")
+    .replace("Totem ", "Totem ");
+
+  options.push({ value: name, text: name });
+}
 
     new TomSelect("#pokemonName", {
       options,
@@ -33,6 +30,8 @@ window.addEventListener('DOMContentLoaded', function () {
       placeholder: "Select a Pokémon..."
     });
   });
+
+});
 
   
   new TomSelect("#size", {
