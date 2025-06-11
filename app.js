@@ -29,6 +29,25 @@ window.addEventListener('DOMContentLoaded', function () {
     })
     .catch(error => console.error("Error loading Pokémon list:", error));
 
+  // Fetch Abilities from PokéAPI
+  fetch('https://pokeapi.co/api/v2/ability?limit=1000')
+    .then(res => res.json())
+    .then(data => {
+      const abilityOptions = data.results.map(a => {
+        const name = a.name.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+        return { value: name, text: name };
+      });
+
+      new TomSelect("#ability", {
+        options: abilityOptions,
+        create: false,
+        placeholder: "Select an Ability..."
+      });
+    })
+    .catch(error => console.error("Error loading abilities:", error));
+
+
+  
   // Size dropdown
   new TomSelect("#size", {
     options: [
