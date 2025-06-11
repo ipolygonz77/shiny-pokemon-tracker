@@ -1,37 +1,36 @@
 const pokemonList = [];
 
 window.addEventListener('DOMContentLoaded', function () {
-
-  fetch('https://raw.githubusercontent.com/msikma/pokesprite/master/data/pokemon.json')
-  .then(res => res.json())
-  .then(data => {
-    const options = [];
-
-    for (const key in data) {
-  if (key.includes("/")) continue; // skip aliases like "bulbasaur/1"
-
-  let name = key.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
-
-  name = name
-    .replace("Alola ", "Alolan ")
-    .replace("Galar ", "Galarian ")
-    .replace("Hisui ", "Hisuian ")
-    .replace("Paldea ", "Paldean ")
-    .replace("Mega ", "Mega ")
-    .replace("Gmax", "Gigantamax ")
-    .replace("Totem ", "Totem ");
-
-  options.push({ value: name, text: name });
-}
-
-    new TomSelect("#pokemonName", {
-      options,
-      create: false,
-      placeholder: "Select a Pokémon..."
-    });
-  });
-
+  // Fetch Pokémon from PokéAPI
+  .catch(error => console.error("Error loading Pokémon list:", error));
   
+  fetch('https://pokeapi.co/api/v2/pokemon?limit=2000')
+    .then(res => res.json())
+    .then(data => {
+      const options = data.results.map(p => {
+        let name = p.name.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+
+        // Optional form renaming
+        name = name
+          .replace("Alola ", "Alolan ")
+          .replace("Galar ", "Galarian ")
+          .replace("Hisui ", "Hisuian ")
+          .replace("Paldea ", "Paldean ")
+          .replace("Gmax", "Gigantamax ")
+          .replace("Totem ", "Totem ");
+
+        return { value: name, text: name };
+      });
+
+      new TomSelect("#pokemonName", {
+        options,
+        create: false,
+        placeholder: "Select a Pokémon..."
+      });
+    })
+    .catch(error => console.error("Error loading Pokémon list:", error));
+
+  // Size dropdown
   new TomSelect("#size", {
     options: [
       { value: "XXS", text: "XXS" },
