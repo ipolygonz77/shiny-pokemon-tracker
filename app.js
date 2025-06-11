@@ -1,5 +1,19 @@
 const pokemonList = [];
 
+new TomSelect("#size", {
+  options: [
+    { value: "XXS", text: "XXS" },
+    { value: "XS", text: "XS" },
+    { value: "S", text: "S" },
+    { value: "M", text: "M" },
+    { value: "L", text: "L" },
+    { value: "XL", text: "XL" },
+    { value: "XXL", text: "XXL" }
+  ],
+  create: false,
+  placeholder: "Select size..."
+});
+
 document.getElementById('shinyForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
