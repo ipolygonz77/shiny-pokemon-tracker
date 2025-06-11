@@ -36,47 +36,43 @@ document.getElementById('generationFilter').addEventListener('change', renderPok
 
 function getBallSprite(ballType) {
   const ballMap = {
-    "Poké Ball": "poke",
-    "Great Ball": "great",
-    "Ultra Ball": "ultra",
-    "Master Ball": "master",
-    "Premier Ball": "premier",
-    "Heal Ball": "heal",
-    "Net Ball": "net",
-    "Nest Ball": "nest",
-    "Dive Ball": "dive",
-    "Dusk Ball": "dusk",
-    "Luxury Ball": "luxury",
-    "Repeat Ball": "repeat",
-    "Timer Ball": "timer",
-    "Quick Ball": "quick",
-    "Cherish Ball": "cherish",
-    "Friend Ball": "friend",
-    "Level Ball": "level",
-    "Love Ball": "love",
-    "Lure Ball": "lure",
-    "Heavy Ball": "heavy",
-    "Fast Ball": "fast",
-    "Moon Ball": "moon",
-    "Dream Ball": "dream",
-    "Beast Ball": "beast",
+    "Poké Ball": "poke-ball",
+    "Great Ball": "great-ball",
+    "Ultra Ball": "ultra-ball",
+    "Master Ball": "master-ball",
+    "Premier Ball": "premier-ball",
+    "Heal Ball": "heal-ball",
+    "Net Ball": "net-ball",
+    "Nest Ball": "nest-ball",
+    "Dive Ball": "dive-ball",
+    "Dusk Ball": "dusk-ball",
+    "Luxury Ball": "luxury-ball",
+    "Repeat Ball": "repeat-ball",
+    "Timer Ball": "timer-ball",
+    "Quick Ball": "quick-ball",
+    "Cherish Ball": "cherish-ball",
+    "Friend Ball": "friend-ball",
+    "Level Ball": "level-ball",
+    "Love Ball": "love-ball",
+    "Lure Ball": "lure-ball",
+    "Heavy Ball": "heavy-ball",
+    "Fast Ball": "fast-ball",
+    "Moon Ball": "moon-ball",
+    "Dream Ball": "dream-ball",
+    "Beast Ball": "beast-ball",
 
-    // Legends Arceus & variants (mapped to closest base sprite)
-    "Poké Ball (Hisuian)": "poke",
-    "Great Ball (Hisuian)": "great",
-    "Ultra Ball (Hisuian)": "ultra",
-    "Feather Ball": "feather",
-    "Wing Ball": "wing",
-    "Jet Ball": "jet",
-    "Heavy Ball (Hisuian)": "heavy",
-    "Leaden Ball": "leaden",
-    "Gigaton Ball": "gigaton"
+    // Hisuian and PLA ball variants
+    "Feather Ball": "feather-ball",
+    "Wing Ball": "wing-ball",
+    "Jet Ball": "jet-ball",
+    "Leaden Ball": "leaden-ball",
+    "Gigaton Ball": "gigaton-ball"
   };
 
   const key = ballMap[ballType];
   if (!key) return "";
 
-  return `https://raw.githubusercontent.com/msikma/pokesprite/master/items/balls/${key}-ball.png`;
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${key}.png`;
 }
 
 function renderPokemonList() {
