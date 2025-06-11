@@ -93,7 +93,13 @@ function renderPokemonList() {
     card.innerHTML = `
       <h2>${pokemon.nickname || pokemon.name}</h2>
       <img src="${spriteUrl}" alt="${pokemon.name}" class="sprite"/>
-      <p><strong>Poké Ball:</strong> ${pokemon.ballType}</p>
+
+<p>
+  <strong>Poké Ball:</strong>
+  <img src="${getBallSprite(pokemon.ballType)}" alt="${pokemon.ballType}" class="ball-sprite"/>
+  ${pokemon.ballType}
+</p>
+      
       <p><strong>Gender:</strong> ${pokemon.gender}</p>
       <p><strong>Game Origin:</strong> ${pokemon.gameOrigin}</p>
       <p><strong>Size:</strong> ${pokemon.size}</p>
