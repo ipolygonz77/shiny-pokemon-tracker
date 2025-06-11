@@ -29,3 +29,10 @@ form input, form button {
   vertical-align: middle;
   margin-right: 5px;
 }
+
+.mark-sprite {
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
